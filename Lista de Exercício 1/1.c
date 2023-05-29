@@ -12,14 +12,38 @@ cálculos.
 
 void main(){
     setlocale(LC_ALL, "portuguese");
-    char codigo_cliente[3], nome_fita[20];
-    int valor_total = 15, qtde_dias = 3;
+    char codigo_cliente[3];
+    int nome_fita, valor_total, qtde_dias = 3;
 
     printf("Informe o código do cliente: \n");
     scanf("%s", &codigo_cliente);
-    printf("Informe o nome da fita: \n");
-    scanf("%s", &nome_fita);
+    printf("Informe o nome da fita: \n"
+            "1 - SuperMan.\n"
+            "2 - Batman Begins.\n"
+            "3 - Aquaman.\n");
+    scanf("%d", &nome_fita);
 
-    printf("O valor total da locação é %d e o quantidade de dias são %d dias\n", valor_total, qtde_dias);
+    switch (nome_fita) {
+        case 1: {
+            printf("Fita escolha foi o SuperMan.");
+            valor_total = 10;
+            break;
+        }
+        case 2: {
+            printf("Fita escolha foi o Batman.");
+            valor_total = 15;
+            break;
+        }
+        case 3: {
+            printf("Fita escolha foi o Aquaman.");
+            valor_total = 20;
+            break;
+        }
+        default: {
+            printf("Fita inválida!");
+        }
+    }
+
+    printf("O valor total da locação é R$%d,00 reais e %d dias para devolução do filme.\n", valor_total, qtde_dias);
     return 0;
 }
